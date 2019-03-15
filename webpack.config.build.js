@@ -2,6 +2,10 @@ const VueLoaderPlugin = require("vue-loader/lib/plugin");
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+    output: {
+        path: __dirname+"/docs",
+        publicPath:"/firstVueProject"
+      },    
   module: {
     rules: [
       {
