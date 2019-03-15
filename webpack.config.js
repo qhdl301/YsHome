@@ -3,7 +3,8 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const path = require('path')
 module.exports = {
     output: {
-        path: __dirname+"/docs"
+        path: __dirname+"/docs",
+        publicPath:"/firstVueProject"
       },    
   module: {
     rules: [
