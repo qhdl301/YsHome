@@ -7,7 +7,9 @@
         </div>
         <div class="w3-cell w3-container">
             <h3>김영수</h3>
-            <p>The response to the animations was ridiculous.</p>
+            <p>생년월일 : 1994.02.04</p>
+            <p>혈액형 : B형</p>
+            <p>직업 : 개발자</p>
         </div>
         </div>  
         <hr>

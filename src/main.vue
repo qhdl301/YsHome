@@ -13,14 +13,15 @@
             <!-- 숨겨져있는 네비게이션 리스트영역 -->
             <a class="w3-bar-item w3-button" href="javascript:;" v-on:click="modeChg('홈페이지')">홈</a> <!-- 하이퍼링크 태그에  javascript:; 사용하면 하이퍼링크 무시-->
             <a class="w3-bar-item w3-button" href="javascript:;" v-on:click="modeChg('프로필')">프로필</a>
-            <a class="w3-bar-item w3-button" href="javascript:;" v-on:click="modeChg('가족')">가족들</a>
+            <a class="w3-bar-item w3-button" href="javascript:;" v-on:click="modeChg('가족')">가족정보</a>
+            <a class="w3-bar-item w3-button" href="javascript:;" v-on:click="modeChg('위치')">위치정보</a>
         </nav>
 
         <!-- 헤더에 표시되는 이름 및 헤더영역 -->
         <header class="w3-bar w3-card w3-theme">
             <!-- 네비게이션바를 나오게 하는 버튼 -->
         <button v-on:click="menuOpen" class="w3-bar-item w3-button w3-xxxlarge w3-hover-theme">&#9776;</button>
-        <h1 class="w3-bar-item">Kim0Soo - Movies</h1>
+        <h1 class="w3-bar-item">Kim0Soo - Profile</h1>
         </header>
 
 
@@ -36,9 +37,11 @@
         <!-- 이걸 페이지 단위로 자르자 - 가족들  -->
         <family v-if="mode=='가족'"></family>
 
+        <!-- 이걸 페이지 단위로 자르자 - 위치정보  -->
+        <location v-if="mode=='위치'"></location>
+
         <footer class="w3-container w3-theme w3-margin-top">
         <h3>0Soo Mobile Front Web Profile Pages</h3>
-        <h3>이곳은 푸터입니다.</h3>
         </footer>
 
   </div>
@@ -50,6 +53,7 @@
 import homepage from "./component/homepage.vue"
 import profile from "./component/profile.vue"
 import family from "./component/family.vue"
+import location from "./component/location.vue"
   export default {
        data() { 
         return {
@@ -75,6 +79,7 @@ import family from "./component/family.vue"
         "homepage" : homepage,
         "profile" : profile,
         "family" : family,
+        "location" : location,
 
       }
   }
