@@ -28,11 +28,8 @@
         <!-- 이걸 페이지 단위로 자르자 - 홈페이지 -->
         <homepage v-if="mode=='홈페이지'"></homepage>
                 
-                
-
         <!-- 이걸 페이지 단위로 자르자 - 프로필  -->
         <profile v-if="mode=='프로필'"></profile>
-
 
         <!-- 이걸 페이지 단위로 자르자 - 가족들  -->
         <family v-if="mode=='가족'"></family>
@@ -58,10 +55,13 @@ import location from "./component/location.vue"
        data() { 
         return {
           isMenu : false,
-          mode : '홈페이지'
+          mode : '홈페이지',
+          latitude : 0,
+          longitude : 0,
+          locYn : false
         }
       },
-      methods:{
+      methods : {
         menuOpen : function(){
             this.$data.isMenu = true
         },
@@ -69,10 +69,21 @@ import location from "./component/location.vue"
             this.$data.isMenu = false
         },
         modeChg : function(mode){
-            this.$data.mode = mode;
-            this.menuClose();
+            this.$data.mode = mode
+            this.menuClose()
+            if(mode == '위치'){
+               this.myLoc()
+            }
+           
+        },
+         myLoc : function() {
+          if(navigator.geolocation){
+             navigator.geolocation.getCurrentPosition (function(pos) {
+                this.$data.latitude = pos.coords.latitude     // 위도
+                this.$data.longitude = pos.coords.longitude   // 경도
+             });
+         } 
         }
-
       },
       components : {
 
@@ -81,6 +92,7 @@ import location from "./component/location.vue"
         "family" : family,
         "location" : location,
 
-      }
+      },
+  
   }
 </script>
