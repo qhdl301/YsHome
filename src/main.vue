@@ -11,9 +11,9 @@
         </div>
         </div>
             <!-- 숨겨져있는 네비게이션 리스트영역 -->
-            <a class="w3-bar-item w3-button" href="#" v-on:click="modeChg('홈페이지')">홈</a>
-            <a class="w3-bar-item w3-button" href="#" v-on:click="modeChg('프로필')">프로필</a>
-            <a class="w3-bar-item w3-button" href="#" v-on:click="modeChg('가족')">가족들</a>
+            <a class="w3-bar-item w3-button" href="javascript:;" v-on:click="modeChg('홈페이지')">홈</a> <!-- 하이퍼링크 태그에  javascript:; 사용하면 하이퍼링크 무시-->
+            <a class="w3-bar-item w3-button" href="javascript:;" v-on:click="modeChg('프로필')">프로필</a>
+            <a class="w3-bar-item w3-button" href="javascript:;" v-on:click="modeChg('가족')">가족들</a>
         </nav>
 
         <!-- 헤더에 표시되는 이름 및 헤더영역 -->
