@@ -7,7 +7,7 @@
         
         
         <div class="w3-padding w3-center">
-            <img class="w3-circle" src="https://www.w3schools.com/w3css/img_avatar.jpg" alt="avatar" style="width:75%">
+            <img class="w3-circle" src="./assets/img/ys.jpg" alt="avatar" style="width:75%">
         </div>
         </div>
             <!-- 숨겨져있는 네비게이션 리스트영역 -->
