@@ -54,7 +54,7 @@ import family from "./component/family.vue"
        data() { 
         return {
           isMenu : false,
-          mode : 'homepage'
+          mode : '홈페이지'
         }
       },
       methods:{
@@ -66,6 +66,7 @@ import family from "./component/family.vue"
         },
         modeChg : function(mode){
             this.$data.mode = mode;
+            this.menuClose();
         }
 
       },
