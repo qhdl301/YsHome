@@ -1,7 +1,6 @@
 <template>
-    <li> 
-        <span v-if="mode=='type'"> type : 1page </span>
-        <!--<span v-else>else : {{message}} / {{text}} / {{count}} </span>-->
+    <li>
+        <span v-if="mode=='type2'">type2 : 3page </span>
     </li>
 </template>
 <script>
@@ -15,9 +14,6 @@
 
       },
       props:[
-         // "text",
-         // "count",
-         // "flag",
           "mode",
       ]
   }
