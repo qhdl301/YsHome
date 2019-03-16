@@ -56,9 +56,6 @@ import location from "./component/location.vue"
         return {
           isMenu : false,
           mode : '홈페이지',
-          latitude : 0,
-          longitude : 0,
-          locYn : false
         }
       },
       methods : {
@@ -71,18 +68,6 @@ import location from "./component/location.vue"
         modeChg : function(mode){
             this.$data.mode = mode
             this.menuClose()
-            if(mode == '위치'){
-               this.myLoc()
-            }
-           
-        },
-         myLoc : function() {
-          if(navigator.geolocation){
-             navigator.geolocation.getCurrentPosition (function(pos) {
-                this.$data.latitude = pos.coords.latitude     // 위도
-                this.$data.longitude = pos.coords.longitude   // 경도
-             });
-         } 
         }
       },
       components : {
