@@ -4,7 +4,7 @@
           <div class="w3-cell-row" v-if="locYn">현재 위치 : {{myAddr}}</div>
           <div class="w3-cell-row" v-else>이 브라우저에서는 Geolocation이 지원되지 않습니다.</div>
           <hr>
-          <div id="map" style="width:400px;height:300px;z-index:0;"></div>
+          <div id="map" style="width:350px;height:300px;z-index:0;"></div>
       <hr>
     </div>
 </template>
