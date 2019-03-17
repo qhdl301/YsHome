@@ -1,10 +1,10 @@
 <template>
     <div class="w3-container">
       <hr>
-          <div class="w3-cell-row" v-if="locYn">현재 위도: {{latitude}} 경도: {{longitude}}</div>
+          <div class="w3-cell-row" v-if="locYn">현재 위치 : {{myAddr}}</div>
           <div class="w3-cell-row" v-else>이 브라우저에서는 Geolocation이 지원되지 않습니다.</div>
           <hr>
-          <div id="map" style="width:500px;height:400px;z-index:0;"></div>
+          <div id="map" style="width:400px;height:300px;z-index:0;"></div>
       <hr>
     </div>
 </template>
@@ -15,7 +15,7 @@
           locYn : false,
           latitude : 0,
           longitude : 0,
-          daumMap : '',
+          myAddr : '',
         } 
       },
       mounted() {
@@ -23,7 +23,7 @@
          if(navigator.geolocation){
             var _this = this;  
             _this.$data.locYn = true 
-              var getLocationCallback = function(pos) {
+            var getLocationCallback = function(pos) {
             // _this를 사용하는 이유는 해당 function안에 this는 getCurrentPosition의 this로 잡힘
             _this.$data.latitude = pos.coords.latitude     // 위도, 
             _this.$data.longitude = pos.coords.longitude   // 경도
@@ -37,7 +37,7 @@
             console.log(error)
             alert(errorMsg);
           }
-          navigator.geolocation.getCurrentPosition (getLocationCallback, getLocationErrorCallback);
+          navigator.geolocation.getCurrentPosition(getLocationCallback, getLocationErrorCallback);
          }else{
             alert(errorMsg);
         }
@@ -54,7 +54,22 @@
           };
 
           this.$data.daumMap = new daum.maps.Map(container, options); //지도 생성 및 객체 리턴
+          _this.callAddress()
+        },
+
+        callAddress(){
+          var _this = this;  
+          var geocoder = new daum.maps.services.Geocoder();
+          var coord = new daum.maps.LatLng(_this.$data.latitude, _this.$data.longitude);
+
+          var callback = function(result, status) {
+            if (status === daum.maps.services.Status.OK) {
+              _this.$data.myAddr = result[0].address.address_name;
+            }
+          };
+          geocoder.coord2Address(coord.getLng(), coord.getLat(), callback);
         }
+
       },
       props:[
         "mode",
