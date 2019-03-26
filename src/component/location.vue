@@ -82,9 +82,13 @@
           //json 타입이 string이면 
           var reqUrl = "https://my-json-server.typicode.com/qhdl301/YsAxios/dust?"
             axios.get(reqUrl).then(function(result){ // _this를 안붙이면 ->  blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
-            if(typeof(result) == "string"){
-              JSON.stringify(result)
-            }
+            if(result.status == 200){
+               if(typeof(result) == "string"){
+                JSON.stringify(result)
+              }
+            }else{
+                alert("통신 실패!!")
+            } 
             //console.log(typeof(result));             // 붙이면 콘솔에 -> Cannot read property 'get' of undefined
             _this.$data.miseResult = result.data.microDust;                                             
           })
