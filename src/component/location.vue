@@ -3,19 +3,22 @@
       <hr>
           <div class="w3-cell-row" v-if="locYn">현재 위치 : {{myAddr}}</div>
           <div class="w3-cell-row" v-else>이 브라우저에서는 Geolocation이 지원되지 않습니다.</div>
+          <div class="w3-cell-row" v-if="miseResult">현재 미세먼지 상태는 : {{miseResult}}</div>
           <hr>
           <div id="map" style="width:500px;height:400px;z-index:0;"></div>
       <hr>
     </div>
 </template>
 <script>
+  import axios from 'axios'
      export default {
-       data() { 
+       data() {        
         return {
           locYn : false,
           latitude : 0,
           longitude : 0,
-          myAddr : '',
+          myAddr : '',          
+          miseResult : ''
         } 
       },
       mounted() {
@@ -32,6 +35,7 @@
             
             //좌표가 불러져 왔으므로 다음맵 생성
             _this.initDaumMap() // //따라서 비동기행위가 끝나고 callback이 실행되는 순간에 init을 해야한다.(pos <- 비동기행위 후 CallBack 함수)
+            _this.getMiseData()
             } 
           var getLocationErrorCallback = function(error){
             console.log(error)
@@ -68,6 +72,18 @@
             }
           };
           geocoder.coord2Address(coord.getLng(), coord.getLat(), callback);
+          
+        },
+
+        getMiseData(){
+          var _this = this;
+          //var miseAddrKey = 'HhZIHZVKtYvTeXRVfIYhfVLZPGlvVjWEhKHKk4X%2F%2Fol0SCriRxuZMdE3TwDiuJAS7IUVqgb4GSz7qN%2BIOtjPCg%3D%3D';
+          //var reqUrl = "http://openapi.airkorea.or.kr/openapi/services/rest/MsrstnInfoInqireSvc/getNearbyMsrstnList?tmX="+_this.$data.latitude+"&tmY="+_this.$data.longitude+"&pageNo=1&numOfRows=10&ServiceKey="+miseAddrKey;
+          var reqUrl = "https://my-json-server.typicode.com/qhdl301/YsAxios/dust?"
+            axios.get(reqUrl).then(function(result){ // _this를 안붙이면 ->  blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+            //console.log(typeof(result));             // 붙이면 콘솔에 -> Cannot read property 'get' of undefined
+            _this.$data.miseResult = result.data.microDust;                                             
+          })
         }
 
       },

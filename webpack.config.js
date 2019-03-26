@@ -1,4 +1,4 @@
-const VueLoaderPlugin = require("vue-loader/lib/plugin");
+const VueLoaderPlugin = require("vue-loader/lib/plugin"); //require - 다른파일을 불러오고 있는 파일들을 추적해서 하나의 파일로 만들어준다
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = {

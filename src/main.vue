@@ -1,3 +1,4 @@
+<!-- 상태관리(뷰) -->
 <template>  <!-- 템플릿은 script에서 가공된 데이터를 html태그에 표현해주는 방식  -->
   <div>
         <nav v-if="isMenu" class="w3-sidebar w3-bar-block w3-card">
@@ -51,13 +52,16 @@ import homepage from "./component/homepage.vue"
 import profile from "./component/profile.vue"
 import family from "./component/family.vue"
 import location from "./component/location.vue"
+import axios from 'axios'
   export default {
-       data() { 
+      // 상태관리(상태)
+      data() { 
         return {
           isMenu : false,
           mode : '홈페이지',
         }
       },
+      // 상태관리(액션)
       methods : {
         menuOpen : function(){
             this.$data.isMenu = true
@@ -70,6 +74,7 @@ import location from "./component/location.vue"
             this.menuClose()
         }
       },
+      // 상태
       components : {
 
         "homepage" : homepage,
