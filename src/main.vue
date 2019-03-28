@@ -17,6 +17,7 @@
             <a class="w3-bar-item w3-button" href="javascript:;" v-on:click="modeChg('가족')">가족정보</a>
             <a class="w3-bar-item w3-button" href="javascript:;" v-on:click="modeChg('위치')">위치정보</a>
             <a class="w3-bar-item w3-button" href="javascript:;" v-on:click="modeChg('영역')">영역</a>
+            <a class="w3-bar-item w3-button" href="javascript:;" v-on:click="modeChg('표')">표</a>
         </nav>
 
         <!-- 헤더에 표시되는 이름 및 헤더영역 -->
@@ -41,6 +42,8 @@
 
         <areaDustInfo v-if="mode=='영역'"></areaDustInfo>
 
+        <grid v-if="mode =='표'"></grid>
+
         <footer class="w3-container w3-theme w3-margin-top">
         <h3>0Soo Mobile Front Web Profile Pages</h3>
         </footer>
@@ -56,6 +59,7 @@ import profile from "./component/profile.vue"
 import family from "./component/family.vue"
 import location from "./component/location.vue"
 import areaDustInfo from "./component/areaDustInfo.vue"
+import grid from "./component/grid.vue"
 import axios from 'axios'
   export default {
       // 상태관리(상태)
@@ -86,7 +90,7 @@ import axios from 'axios'
         "family" : family,
         "location" : location,
         "areaDustInfo" : areaDustInfo,
-        
+        "grid" : grid
       },
   
   }
