@@ -2,7 +2,7 @@
     <div class="w3-container">
         <hr>
         <table id="list" border="1"></table>
-	    <div id="pager2"></div>
+	    <!--<div id="pager2"></div>-->
     </div>
 </template>
 <script>
@@ -19,8 +19,8 @@
       methods:{
           gridRowSet(){
                 //console.log("1 : ",this.$data.areaGridInfo);
-              for(var i = 0; i < this.$data.areaGridInfo.length; ++i){
-                $("#list").jqGrid('addRowData',i,this.$data.areaGridInfo[i]);
+              for(var i = 0; i < this.$data.areaGridInfo.length; i++){
+                $("#list").jqGrid('addRowData',i+1,this.$data.areaGridInfo[i]);
                 //console.log("2 : ",this.$data.areaGridInfo[i]);
               }
           },
@@ -50,13 +50,13 @@
 
                 ],
 
-                rowNum:5,
+                //rowNum:10,
 
-                rowList:[10,20,30],
+                //rowList:[10,20],
 
-                pager: '#pager2',
+                //pager: '#pager2',
 
-                viewrecords: true,
+                //viewrecords: true,
                 
                 //multiselect: true,
 
