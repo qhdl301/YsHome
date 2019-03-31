@@ -14,13 +14,13 @@ import viewSample from "./component/sampleVue.vue"
 Vue.use(VueRouter)
 
 const routerConfig = [
-  { path: '/', component: homepage }, 
-  { path: '/profile', component: profile },
-  { path: '/family', component: family },
-  { path: '/location', component: location },
-  { path: '/areaDustInfo', component: areaDustInfo },
-  { path: '/grid', component: grid },
-  { path: '/viewSample', component: viewSample }
+  { path: '/', name: "Homepage" ,component: homepage }, 
+  { path: '/profile', name: "Profile", component: profile },
+  { path: '/family', name: "Family", component: family },
+  { path: '/location', name: "Location" ,component: location },
+  { path: '/areaDustInfo', name: "AreaMise", component: areaDustInfo },
+  { path: '/grid', name: "Grid", component: grid },
+  { path: '/viewSample', name:"VueSample", component: viewSample }
 ]
 
 const router = new VueRouter({  // new VueRouter(생성자)를 생성할때, 맨 마지막의 선언한 것으로 셋팅 됨

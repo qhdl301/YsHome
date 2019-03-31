@@ -30,7 +30,7 @@
         <header class="w3-bar w3-card w3-theme">
             <!-- 네비게이션바를 나오게 하는 버튼 -->
         <button v-on:click="menuOpen" class="w3-bar-item w3-button w3-xxxlarge w3-hover-theme">&#9776;</button>
-        <h1 class="w3-bar-item">Kim0Soo - Profile</h1>
+        <h1 class="w3-bar-item">Kim0Soo - {{title}}</h1>
         </header>
         <!-- 이걸 페이지 단위로 자르자 - 홈페이지 -->
         <!-- <homepage v-if="mode=='홈페이지'"></homepage> -->
@@ -59,7 +59,7 @@ import axios from 'axios'
       data() { 
         return {
           isMenu : false,
-          mode : '홈페이지',
+          title : this.$route.name,
         }
       },
       // 상태관리(액션)
@@ -86,6 +86,8 @@ import axios from 'axios'
       },
       watch:{
         $route (to, from){
+          console.log(to.name)
+          this.title = to.name
           this.menuClose()
       }
     } 

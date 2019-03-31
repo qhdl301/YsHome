@@ -1,7 +1,6 @@
 <template>
     <div class="w3-container">
-        <h2>Avatar List</h2>
-        <p>가족정보</p>
+        <h2>가족정보</h2>
         <ul class="w3-ul w3-card-4">
             <li class="w3-bar">
             <img src="https://www.w3schools.com/w3css/img_avatar2.png" class="w3-bar-item w3-circle w3-hide-small" style="width:85px">
