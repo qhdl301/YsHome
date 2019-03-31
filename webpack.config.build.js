@@ -4,7 +4,7 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 module.exports = {
     output: {
         path: __dirname+"/docs",
-        publicPath:"/firstVueProject"
+        publicPath:"/"
       },    
   module: {
     rules: [
